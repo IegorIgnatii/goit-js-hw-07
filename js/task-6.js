@@ -1,10 +1,17 @@
+function getRandomHexColor() {
+  return `#${Math.floor(Math.random() * 16777215)
+    .toString(16)
+    .padStart(6, 0)}`;
+}
+
 const inputEl = document.querySelector('input');
 
 const btnDestroyEl = document.querySelector('[data-destroy]');
 const btnCreateEl = document.querySelector('[data-create]');
 
 const divBoxEl = document.querySelector('#boxes');
-const divControlEl = document.querySelector('div#boxes');
+
+const divNewEl = document.querySelector('div#boxes');
 
 btnCreateEl.addEventListener('click', createBox);
 
@@ -34,10 +41,4 @@ function createNextBox() {
 function destroyBox() {
   inputEl.innerHTML('');
   inputEl.value('');
-}
-
-function getRandomHexColor() {
-  return `#${Math.floor(Math.random() * 16777215)
-    .toString(16)
-    .padStart(6, 0)}`;
 }
