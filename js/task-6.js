@@ -17,9 +17,9 @@ btnCreateEl.addEventListener('click', createBox);
 
 btnDestroyEl.addEventListener('click', destroyBox);
 
-function createBox() {
-  return `<div class="box"></div>`;
-}
+// function createBox() {
+//   return `<div class="box"></div>`;
+// }
 
 function createNextBox() {
   const condition = Number(inputEl.value);
