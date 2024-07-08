@@ -11,34 +11,35 @@ const btnCreateEl = document.querySelector('[data-create]');
 
 const divBoxEl = document.querySelector('#boxes');
 
-const divNewEl = document.querySelector('div#boxes');
-
-btnCreateEl.addEventListener('click', createBox);
+btnCreateEl.addEventListener('click', createBoxes);
 
 btnDestroyEl.addEventListener('click', destroyBox);
 
-// function createBox() {
-//   return `<div class="box"></div>`;
-// }
+function createBox(i) {
+  const len = 30 + 10 * i;
+  return `<div style="width:${len}px; height:${len}px; background-color: ${getRandomHexColor()}"  class="box"></div>`;
+}
 
-function createNextBox() {
+function createBoxes() {
   const condition = Number(inputEl.value);
+  inputEl.value = '';
   if (condition < 1 || condition >= 100) {
-    return alert('error');
+    return;
   } else {
     const divBoxEl = document.querySelector('#boxes');
 
+    const boxes = [];
+
     let p = 30;
     for (let i = 0; i < condition; i++) {
-      nextDiv.style.height = `${p + 10 * i} px`;
-      nextDiv.style.width = `${p + 10 * i} px`;
-      divBoxEl.appendChild(nextDiv);
-      nextDiv.style.backgroundColor = getRandomHexColor;
+      boxes.push(createBox(i));
     }
+    console.log(boxes.join(''));
+    divBoxEl.innerHTML = boxes.join('');
   }
 }
 
 function destroyBox() {
-  inputEl.innerHTML('');
-  inputEl.value('');
+  divBoxEl.innerHTML = '';
+  inputEl.value = '';
 }
