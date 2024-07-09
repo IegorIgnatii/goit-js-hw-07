@@ -39,3 +39,6 @@ const imagesForHTML = images
   .join('');
 
 galleryImgElem.insertAdjacentHTML('beforeend', imagesForHTML);
+
+
+
